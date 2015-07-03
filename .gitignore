@@ -1,5 +1,4 @@
 # Mac OS X
-
 .Trash
 Movies
 Music
@@ -10,3 +9,6 @@ Documents
 Desktop
 Applications
 Library
+
+# Vim
+.viminfo

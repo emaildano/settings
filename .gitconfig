@@ -1,2 +1,4 @@
 [core]
 	excludesfile = /Users/danielolson/.gitignore_global
+[push]
+	default = simple

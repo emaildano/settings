@@ -5,7 +5,8 @@
     showOnStartup: false
   core:
     ignoredNames: [
-      ".DS_Store"
+      ".DS_Store",
+      "node_modules"
     ]
   editor:
     invisibles: {}

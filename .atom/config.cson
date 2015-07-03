@@ -3,6 +3,11 @@
     userId: "233ca173-db1b-b404-adff-af18fc2e1fef"
   welcome:
     showOnStartup: false
-  core: {}
+  core:
+    ignoredNames: [
+      ".DS_Store"
+    ]
   editor:
     invisibles: {}
+  "tree-view":
+    hideIgnoredNames: true

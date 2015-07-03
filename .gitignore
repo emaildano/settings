@@ -12,3 +12,7 @@ Library
 
 # Vim
 .viminfo
+
+# Node.js and NPM
+.npm
+node_modules

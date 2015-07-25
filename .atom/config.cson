@@ -7,7 +7,12 @@
     ignoredNames: [
       ".DS_Store"
     ]
+    themes: [
+      "seti-ui"
+      "oceanic-reef-syntax"
+    ]
   editor:
     invisibles: {}
   "tree-view":
     hideIgnoredNames: true
+  "one-dark-ui": {}

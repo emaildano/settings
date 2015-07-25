@@ -10,6 +10,9 @@ Desktop
 Applications
 Library
 
+# Boto
+.boto
+
 # Vim
 .viminfo
 

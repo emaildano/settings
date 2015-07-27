@@ -10,7 +10,5 @@ alias ls='ls -GFh'
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
-# Dev Scripts
-alias installDevTools='
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &
-  brew install wget unrar'
+# Ansible
+alias hosts='/etc/ansible/hosts'

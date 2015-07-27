@@ -10,9 +10,16 @@ Desktop
 Applications
 Library
 Source
+Dev
+.ssh
 
 # Boto
 .boto
+
+# Ansible
+ansible_hosts
+server.retry
+.ansible
 
 # Vim
 .viminfo

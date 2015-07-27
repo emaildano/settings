@@ -24,6 +24,7 @@ server.retry
 # Vim
 .viminfo
 
-# Node.js and NPM
+# Node.js and NPM https://gist.github.com/DanHerbert/9520689
 .npm
 node_modules
+.node

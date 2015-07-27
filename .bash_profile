@@ -14,5 +14,5 @@ alias hosts='/etc/ansible/hosts'
 
 # Homebrew
 alias installhomebrew='ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
-
 export PATH="$HOME/.node/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"

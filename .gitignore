@@ -28,3 +28,6 @@ server.retry
 .npm
 node_modules
 .node
+
+# Composer
+.composer

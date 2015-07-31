@@ -12,6 +12,9 @@ alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall F
 # Ansible
 alias hosts='/etc/ansible/hosts'
 
+# NPM
+alias cleannpm='for package in `ls node_modules`; do npm uninstall $package; done;'
+
 # Homebrew
 alias installhomebrew='ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
 export PATH="$HOME/.node/bin:$PATH"

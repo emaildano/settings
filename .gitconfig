@@ -2,3 +2,6 @@
 	excludesfile = /Users/danielolson/.gitignore_global
 [push]
 	default = simple
+[user]
+	name = Daniel Olson
+	email = emaildano@gmail.com

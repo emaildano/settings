@@ -22,3 +22,4 @@
   "one-dark-ui": {}
   linter: {}
   "linter-scss-lint": {}
+  "fuzzy-finder": {}

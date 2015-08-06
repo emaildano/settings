@@ -23,3 +23,5 @@
   linter: {}
   "linter-scss-lint": {}
   "fuzzy-finder": {}
+  tabs:
+    usePreviewTabs: true

@@ -9,8 +9,16 @@ alias ls='ls -GFh'
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
+# Bash
+alias reload='source ~/.bash_profile'
+
 # Ansible
 alias hosts='/etc/ansible/hosts'
+
+alias getAwsHosts='
+  rm -rf ~/.ansible/hosts ~/.ansible/ec2.ini &&
+  wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/ec2.py -o ~/.ansible/hosts &&
+  wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/ec2.ini -P ~/.ansible'
 
 # NPM
 alias cleannpm='for package in `ls node_modules`; do npm uninstall $package; done;'

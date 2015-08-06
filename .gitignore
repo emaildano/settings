@@ -32,7 +32,7 @@ Creative Cloud Files
 
 # Ansible
 ansible_hosts
-server.retry
+*.retry
 .ansible
 
 # Vim

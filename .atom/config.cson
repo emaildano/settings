@@ -11,8 +11,15 @@
       "seti-ui"
       "oceanic-reef-syntax"
     ]
+    excludeVcsIgnoredPaths: false
+    disabledPackages: [
+      "linter-scss-lint"
+    ]
   editor:
     invisibles: {}
   "tree-view":
     hideIgnoredNames: true
   "one-dark-ui": {}
+  linter: {}
+  "linter-scss-lint": {}
+  "fuzzy-finder": {}

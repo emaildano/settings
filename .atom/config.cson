@@ -8,7 +8,7 @@
       ".DS_Store"
     ]
     themes: [
-      "seti-ui"
+      "atom-material-ui"
       "oceanic-reef-syntax"
     ]
     excludeVcsIgnoredPaths: false
@@ -17,6 +17,7 @@
     ]
   editor:
     invisibles: {}
+    scrollPastEnd: true
   "tree-view":
     hideIgnoredNames: true
   "one-dark-ui": {}
@@ -25,3 +26,7 @@
   "fuzzy-finder": {}
   tabs:
     usePreviewTabs: true
+  "atom-material-ui":
+    disableAnimations: true
+    depth: true
+    panelContrast: true

@@ -15,13 +15,14 @@ class Linter
     @lintOnFly = true # A default art value, to be immediately replaced by the observe config below
 
     # Private Stuff
-    @subscriptions = new CompositeDisposable
     @emitter = new Emitter
     @linters = new (require('./linter-registry'))()
     @editors = new (require('./editor-registry'))()
     @messages = new (require('./message-registry'))()
     @views = new LinterViews(this)
     @commands = new Commands(this)
+
+    @subscriptions = new CompositeDisposable(@views, @editors, @linters, @messages, @commands)
 
     @subscriptions.add @linters.onDidUpdateMessages (info) =>
       @messages.set(info)
@@ -35,13 +36,13 @@ class Linter
 
     @subscriptions.add atom.workspace.observeTextEditors (editor) => @createEditorLinter(editor)
 
-  serialize: -> @state
-
   addLinter: (linter) ->
     @linters.addLinter(linter)
 
   deleteLinter: (linter) ->
+    return unless @hasLinter(linter)
     @linters.deleteLinter(linter)
+    @deleteMessages(linter)
 
   hasLinter: (linter) ->
     @linters.hasLinter(linter)
@@ -102,15 +103,9 @@ class Linter
     editorLinter.onShouldLint (onChange) =>
       @linters.lint({onChange, editorLinter})
     editorLinter.onDidDestroy =>
-      editorLinter.deactivate()
       @messages.deleteEditorMessages(editor)
 
   deactivate: ->
     @subscriptions.dispose()
-    @views.destroy()
-    @editors.deactivate()
-    @linters.deactivate()
-    @commands.destroy()
-    @messages.deactivate()
 
 module.exports = Linter

@@ -29,8 +29,8 @@
   "homepage": "https://github.com/AtomLinter/linter-scss-lint",
   "_id": "linter-scss-lint@2.0.0",
   "_shasum": "e907593c0a831d935f71107adb1da350699451fc",
-  "_resolved": "file:../d-115630-8334-12t0v7y/package.tgz",
-  "_from": "../d-115630-8334-12t0v7y/package.tgz",
+  "_resolved": "file:../d-115721-12295-bbpzqz/package.tgz",
+  "_from": "../d-115721-12295-bbpzqz/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

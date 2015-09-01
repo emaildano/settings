@@ -1,3 +1,19 @@
+## Upcoming
+
+* Fix baseline alignment of text on the bottom bar
+* Fix a bug where linter:togglePanel won't work
+* Stricter message validation, helps catching provider bugs
+
+## 1.4.3
+
+* Fix a bug where bottom tabs's count won't be updated on pane change unless lint is triggered
+* Fix a bug where paths would be shown at first even when file tab is selected.
+
+## 1.4.2
+
+* Re-add `statusIconPosition` config
+* Fix a typo in Linter:toggle
+
 ## 1.4.1
 
 * Fix a critical typo

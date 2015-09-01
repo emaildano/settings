@@ -12,17 +12,17 @@
       "oceanic-reef-syntax"
     ]
     excludeVcsIgnoredPaths: false
-    disabledPackages: [
-      "linter-scss-lint"
-    ]
   editor:
     invisibles: {}
     scrollPastEnd: true
   "tree-view":
     hideIgnoredNames: true
   "one-dark-ui": {}
-  linter: {}
-  "linter-scss-lint": {}
+  linter:
+    showErrorTabLine: true
+    showErrorTabFile: false
+  "linter-scss-lint":
+    executablePath: "/usr/local/bin/scss-lint"
   "fuzzy-finder": {}
   tabs:
     usePreviewTabs: true

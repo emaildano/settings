@@ -2,13 +2,12 @@ describe 'Linter Behavior', ->
   linter = null
   linterState = null
   bottomContainer = null
+  {getLinter} = require('./common')
   trigger = (el, name) ->
     event = document.createEvent('HTMLEvents');
     event.initEvent(name, true, false);
     el.dispatchEvent(event);
 
-  getLinter = ->
-    return {grammarScopes: ['*'], lintOnFly: false, modifiesBuffer: false, scope: 'project', lint: -> }
   getMessage = (type, filePath) ->
     return {type, text: "Some Message", filePath, range: [[0, 0], [1,1]]}
 
@@ -42,12 +41,26 @@ describe 'Linter Behavior', ->
       trigger(bottomContainer.getTab('Project'), 'click')
       expect(linter.views.panel.getVisibility()).toBe(true)
 
+    it 'updates count on pane change', ->
+      provider = getLinter()
+      expect(bottomContainer.getTab('File').count).toBe(0)
+      messages = [getMessage('Error', __dirname + '/fixtures/file.txt')]
+      linter.setMessages(provider, messages)
+      linter.messages.updatePublic()
+      waitsForPromise ->
+        atom.workspace.open('file.txt').then ->
+          expect(bottomContainer.getTab('File').count).toBe(1)
+          atom.workspace.open('/tmp/non-existing-file')
+        .then ->
+          expect(bottomContainer.getTab('File').count).toBe(0)
+
   describe 'Markers', ->
     it 'automatically marks files when they are opened if they have any markers', ->
       provider = getLinter()
       messages = [getMessage('Error', '/etc/passwd')]
       linter.setMessages(provider, messages)
+      linter.messages.updatePublic()
       waitsForPromise ->
-        atom.workspace.open('/etc/paswd').then ->
+        atom.workspace.open('/etc/passwd').then ->
           activeEditor = atom.workspace.getActiveTextEditor()
-          expect(activeEditor.getMarkers().length).toBe(1)
+          expect(activeEditor.getMarkers().length > 0).toBe(true)

@@ -30,9 +30,15 @@ Creative Cloud Files
 # Boto
 .boto
 
-# Ansible
+# AWS CLI
+.aws
+
+# Ansible / Vagrant
 ansible_hosts
 server.retry
+VirtualBox VMs
+.vagrant.d
+ec2.retry
 .ansible
 
 # Vim

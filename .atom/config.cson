@@ -1,9 +1,9 @@
 "*":
-  "exception-reporting":
-    userId: "233ca173-db1b-b404-adff-af18fc2e1fef"
-  welcome:
-    showOnStartup: false
   core:
+    disabledPackages: [
+      "linter-scss-lint"
+    ]
+    excludeVcsIgnoredPaths: false
     ignoredNames: [
       ".DS_Store"
     ]
@@ -11,15 +11,18 @@
       "seti-ui"
       "oceanic-reef-syntax"
     ]
-    excludeVcsIgnoredPaths: false
-    disabledPackages: [
-      "linter-scss-lint"
-    ]
   editor:
+    fontSize: 16
     invisibles: {}
-  "tree-view":
-    hideIgnoredNames: true
-  "one-dark-ui": {}
+    scrollPastEnd: true
+    softWrapAtPreferredLineLength: true
+    tabType: "soft"
+  "exception-reporting":
+    userId: "233ca173-db1b-b404-adff-af18fc2e1fef"
+  "fuzzy-finder": {}
   linter: {}
   "linter-scss-lint": {}
-  "fuzzy-finder": {}
+  "one-dark-ui": {}
+  "tree-view": {}
+  welcome:
+    showOnStartup: false

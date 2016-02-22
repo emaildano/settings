@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.8.1
+- Fix tree-view background color
+- Add apm installation steps to README
+- Fix issues with tab bar
+
+## 0.8.0
+- Update settings view
+- Limit CPU usage of <progress> elements
+- Add .yaml as extension for YAML file icon
+- Alias .es and .es6 to js
+
 ## 0.7.1
 - Fix broken icons
 

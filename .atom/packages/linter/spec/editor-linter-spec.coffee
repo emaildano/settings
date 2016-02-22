@@ -1,5 +1,4 @@
 describe 'editor-linter', ->
-<<<<<<< HEAD
   {getMessage, wait} = require('./common')
   EditorLinter = require('../lib/editor-linter')
   editorLinter = null
@@ -11,15 +10,6 @@ describe 'editor-linter', ->
     waitsForPromise ->
       atom.workspace.destroyActivePaneItem()
       atom.workspace.open(__dirname + '/fixtures/file.txt').then ->
-=======
-  EditorLinter = require('../lib/editor-linter')
-  editorLinter = null
-  textEditor = null
-  beforeEach ->
-    waitsForPromise ->
-      atom.workspace.destroyActivePaneItem()
-      atom.workspace.open('/tmp/test.txt').then ->
->>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
         editorLinter?.dispose()
         textEditor = atom.workspace.getActiveTextEditor()
         editorLinter = new EditorLinter(textEditor)
@@ -28,7 +18,6 @@ describe 'editor-linter', ->
     it "cries when provided argument isn't a TextEditor", ->
       expect ->
         new EditorLinter
-<<<<<<< HEAD
       .toThrow()
       expect ->
         new EditorLinter(null)
@@ -126,18 +115,6 @@ describe 'editor-linter', ->
 
   describe '::onShouldLint', ->
     it 'is triggered on save', ->
-=======
-      .toThrow("Given editor isn't really an editor")
-      expect ->
-        new EditorLinter(null)
-      .toThrow("Given editor isn't really an editor")
-      expect ->
-        new EditorLinter(55)
-      .toThrow("Given editor isn't really an editor")
-
-  describe '::onShouldLint', ->
-    it 'ignores instant save requests', ->
->>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
       timesTriggered = 0
       editorLinter.onShouldLint ->
         timesTriggered++
@@ -147,7 +124,6 @@ describe 'editor-linter', ->
       textEditor.save()
       textEditor.save()
       expect(timesTriggered).toBe(5)
-<<<<<<< HEAD
     it 'respects lintOnFlyInterval config', ->
       timeCalled = null
       flyStatus = null
@@ -177,8 +153,6 @@ describe 'editor-linter', ->
           expect(flyStatus).toBe(true)
           expect(timeCalled - timeDid).toBeGreaterThan(599)
           expect(timeCalled - timeDid).toBeLessThan(700)
-=======
->>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
 
   describe '::onDidDestroy', ->
     it 'is called when TextEditor is destroyed', ->

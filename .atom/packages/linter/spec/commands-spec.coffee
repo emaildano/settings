@@ -5,7 +5,6 @@ describe 'Commands', ->
     waitsForPromise ->
       atom.packages.activatePackage('linter').then ->
         linter = atom.packages.getActivePackage('linter').mainModule.instance
-<<<<<<< HEAD
         atom.workspace.open(__dirname + '/fixtures/file.txt')
 
   {getMessage} = require('./common')
@@ -32,13 +31,3 @@ describe 'Commands', ->
           linter.commands.toggleLinter()
           linter.commands.toggleLinter()
           expect(linter.commands.lint).toHaveBeenCalled()
-=======
-
-  describe 'linter:togglePanel', ->
-    it 'toggles the panel visibility', ->
-      visibility = linter.views.panel.getVisibility()
-      linter.commands.togglePanel()
-      expect(linter.views.panel.getVisibility()).toBe(!visibility)
-      linter.commands.togglePanel()
-      expect(linter.views.panel.getVisibility()).toBe(visibility)
->>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566

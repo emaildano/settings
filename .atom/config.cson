@@ -1,8 +1,9 @@
 "*":
+  "atom-material-ui":
+    depth: true
+    disableAnimations: true
+    panelContrast: true
   core:
-    disabledPackages: [
-      "linter-scss-lint"
-    ]
     excludeVcsIgnoredPaths: false
     ignoredNames: [
       ".DS_Store"
@@ -11,40 +12,22 @@
       "atom-material-ui"
       "oceanic-reef-syntax"
     ]
-<<<<<<< HEAD
-=======
-    excludeVcsIgnoredPaths: false
->>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
   editor:
     fontSize: 16
     invisibles: {}
     scrollPastEnd: true
-<<<<<<< HEAD
-    softWrapAtPreferredLineLength: true
-    tabType: "soft"
   "exception-reporting":
     userId: "233ca173-db1b-b404-adff-af18fc2e1fef"
   "fuzzy-finder": {}
-  linter: {}
-  "linter-scss-lint": {}
-  "one-dark-ui": {}
-  "tree-view": {}
-  welcome:
-    showOnStartup: false
-=======
-  "tree-view":
-    hideIgnoredNames: true
-  "one-dark-ui": {}
   linter:
-    showErrorTabLine: true
     showErrorTabFile: false
+    showErrorTabLine: true
   "linter-scss-lint":
     executablePath: "/usr/local/bin/scss-lint"
-  "fuzzy-finder": {}
+  "one-dark-ui": {}
   tabs:
     usePreviewTabs: true
-  "atom-material-ui":
-    disableAnimations: true
-    depth: true
-    panelContrast: true
->>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
+  "tree-view":
+    hideIgnoredNames: true
+  welcome:
+    showOnStartup: false

@@ -40,6 +40,9 @@ VirtualBox VMs
 *.retry
 .ansible
 
+# Atom
+.atom/.apm
+
 # Vim
 .viminfo
 

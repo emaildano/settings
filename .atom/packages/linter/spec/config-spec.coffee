@@ -1,12 +1,9 @@
 describe 'Linter Config', ->
   linter = null
   {getLinter, getMessage} = require('./common')
-<<<<<<< HEAD
   CP = require('child_process')
   FS = require('fs')
   Helpers = require('../lib/helpers')
-=======
->>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
   beforeEach ->
     waitsForPromise ->
       atom.packages.activatePackage('linter').then ->
@@ -35,7 +32,6 @@ describe 'Linter Config', ->
       expect(linter.views.bottomContainer.status.count).toBe(0)
       atom.config.set('linter.statusIconScope', 'Project')
       expect(linter.views.bottomContainer.status.count).toBe(1)
-<<<<<<< HEAD
   describe 'ignoreVCSIgnoredFiles', ->
     it 'ignores the file if its ignored by the VCS', ->
       filePath = "/tmp/linter_test_file"
@@ -76,5 +72,3 @@ describe 'Linter Config', ->
           linter.commands.lint()
           expect(linterProvider.lint).toHaveBeenCalled()
           CP.execSync("rm -f #{filePath}")
-=======
->>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566

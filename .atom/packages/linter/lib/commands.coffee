@@ -16,27 +16,17 @@ class Commands
     @index = null
 
   togglePanel: ->
-<<<<<<< HEAD
     atom.config.set('linter.showErrorPanel', not atom.config.get('linter.showErrorPanel'))
-=======
-    atom.config.set('linter.showErrorPanel', !atom.config.get('linter.showErrorPanel'))
->>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
 
   toggleLinter: ->
     activeEditor = atom.workspace.getActiveTextEditor()
     return unless activeEditor
     editorLinter = @linter.getEditorLinter(activeEditor)
     if editorLinter
-<<<<<<< HEAD
       editorLinter.dispose()
     else
       @linter.createEditorLinter(activeEditor)
       @lint()
-=======
-      editorLinter.destroy()
-    else
-      @linter.createEditorLinter(activeEditor)
->>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
 
 
   setBubbleTransparent: ->

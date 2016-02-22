@@ -4,11 +4,7 @@ describe 'editor-registry', ->
   beforeEach ->
     waitsForPromise ->
       atom.workspace.destroyActivePaneItem()
-<<<<<<< HEAD
       atom.workspace.open(__dirname + '/fixtures/file.txt')
-=======
-      atom.workspace.open('test.txt')
->>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
     editorRegistry?.dispose()
     editorRegistry = new EditorRegistry
 
@@ -16,17 +12,10 @@ describe 'editor-registry', ->
     it 'cries when invalid TextEditor was provided', ->
       expect ->
         editorRegistry.create()
-<<<<<<< HEAD
       .toThrow()
       expect ->
         editorRegistry.create(5)
       .toThrow()
-=======
-      .toThrow("Given editor isn't really an editor")
-      expect ->
-        editorRegistry.create(5)
-      .toThrow("Given editor isn't really an editor")
->>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
     it "adds TextEditor to it's registry", ->
       editorRegistry.create(atom.workspace.getActiveTextEditor())
       expect(editorRegistry.editorLinters.size).toBe(1)
@@ -35,7 +24,6 @@ describe 'editor-registry', ->
       atom.workspace.destroyActivePaneItem()
       expect(editorRegistry.editorLinters.size).toBe(0)
 
-<<<<<<< HEAD
   describe '::has', ->
     it 'returns the status of existence', ->
       editor = atom.workspace.getActiveTextEditor()
@@ -48,8 +36,6 @@ describe 'editor-registry', ->
       atom.workspace.destroyActivePaneItem()
       expect(editorRegistry.has(editor)).toBe(false)
 
-=======
->>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
   describe '::forEach', ->
     it 'calls the callback once per editorLinter', ->
       editorRegistry.create(atom.workspace.getActiveTextEditor())
@@ -63,7 +49,6 @@ describe 'editor-registry', ->
       expect(editorRegistry.ofTextEditor(null)).toBeUndefined()
       expect(editorRegistry.ofTextEditor(1)).toBeUndefined()
       expect(editorRegistry.ofTextEditor(5)).toBeUndefined()
-<<<<<<< HEAD
       expect(editorRegistry.ofTextEditor('asd')).toBeUndefined()
     it 'returns editorLinter when valid key is provided', ->
       activeEditor = atom.workspace.getActiveTextEditor()
@@ -84,14 +69,6 @@ describe 'editor-registry', ->
       editorRegistry.create(activeEditor)
       expect(editorRegistry.ofPath(editorPath)).toBeDefined()
 
-=======
-      expect(editorRegistry.ofTextEditor("asd")).toBeUndefined()
-    it 'returns editorLinter when valid key is provided', ->
-      activeEditor = atom.workspace.getActiveTextEditor()
-      editorRegistry.create(activeEditor)
-      expect(editorRegistry.ofTextEditor(activeEditor)).toBeDefined()
-
->>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
   describe '::observe', ->
     it 'calls with the current editorLinters', ->
       timesCalled = 0

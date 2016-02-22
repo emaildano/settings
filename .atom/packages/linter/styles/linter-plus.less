@@ -5,6 +5,7 @@
 
 linter-message {
   display: flex;
+<<<<<<< HEAD
   align-items: center;
   font-size: @font-size;
   line-height: 1.2;
@@ -25,6 +26,19 @@ linter-message {
 
 linter-message-line {
   white-space: pre-wrap; /* Enable whitespace to be maintained from the user message. */
+=======
+  align-items: flex-end;
+  flex-wrap: wrap;
+  font-size: @font-size;
+  line-height: 1.2;
+  & > .badge {
+    align-self: flex-start;
+  }
+>>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
+}
+
+.linter-message-item {
+  margin: @spacing;
 }
 
 linter-multiline-message {
@@ -59,10 +73,17 @@ linter-multiline-message {
 linter-panel {
   display: block;
   overflow-y: auto;
+<<<<<<< HEAD
   min-height: 2em;
 
   .linter-messages {
     padding: @spacing;
+=======
+  max-height: 150px;
+  padding: @spacing;
+  &[hidden]{
+    display: none;
+>>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
   }
 }
 
@@ -95,7 +116,11 @@ linter-panel {
   a {
     color: @linter-inline-link;
     &:last-of-type {
+<<<<<<< HEAD
       padding-right: @spacing * 1.5; // a bit extra space for visual pleasing
+=======
+      padding-right: @spacing*1.5; // a bit extra space for visual pleasing
+>>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
     }
   }
 }
@@ -111,6 +136,19 @@ linter-bottom-tab {
   cursor: pointer;
   vertical-align: middle;
   position: relative;
+<<<<<<< HEAD
+=======
+  top: -2px;
+  &:first-of-type {
+    border-top-left-radius: @component-border-radius;
+    border-bottom-left-radius: @component-border-radius;
+  }
+  &:last-of-type {
+    margin-right: .6em;
+    border-top-right-radius: @component-border-radius;
+    border-bottom-right-radius: @component-border-radius;
+  }
+>>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
 
   &:active {
     background: transparent;

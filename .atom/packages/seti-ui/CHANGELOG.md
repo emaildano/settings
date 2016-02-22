@@ -1,10 +1,13 @@
 # Changelog
 
+<<<<<<< HEAD
 ## 0.8.1
 - Fix tree-view background color
 - Add apm installation steps to README
 - Fix issues with tab bar
 
+=======
+>>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
 ## 0.8.0
 - Update settings view
 - Limit CPU usage of <progress> elements

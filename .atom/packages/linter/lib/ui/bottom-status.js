@@ -17,6 +17,7 @@ class BottomStatus extends HTMLElement{
     })
   }
 
+<<<<<<< HEAD:.atom/packages/linter/lib/ui/bottom-status.js
   get visibility() {
     return !this.hasAttribute('hidden')
   }
@@ -29,6 +30,9 @@ class BottomStatus extends HTMLElement{
   }
 
   get count() {
+=======
+  get count(){
+>>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566:.atom/packages/linter/lib/ui/bottom-status.js
     return this._count
   }
 

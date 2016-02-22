@@ -112,6 +112,7 @@ module.exports =
       title: 'Show "Project" Tab in the Status Bar'
       type: 'boolean'
       default: true
+<<<<<<< HEAD
       order: 5
     statusIconScope:
       title: 'Scope of Linter Messages to Show in Status Icon'
@@ -125,10 +126,39 @@ module.exports =
       type: 'string'
       default: 'Left'
       order: 5
+=======
+    ignoredMessageTypes:
+      title: "Ignored message Types"
+      type: 'array'
+      default: []
+      items:
+        type: 'string'
+    statusIconScope:
+      title: "Scope of messages to show in status icon"
+      type: 'string'
+      enum: ['File', 'Line', 'Project']
+      default: 'Project'
+    statusIconPosition:
+      title: 'Position of Status Icon on Bottom Bar'
+      enum: ['Left', 'Right']
+      type: 'string'
+      default: 'Left'
+>>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
 
   activate: (@state) ->
     LinterPlus = require('./linter.coffee')
     @instance = new LinterPlus state
+<<<<<<< HEAD
+=======
+    {deprecate} = require('grim')
+    for atomPackage in atom.packages.getLoadedPackages()
+      deprecate('AtomLinter legacy API has been removed.
+        Please refer to the Linter docs to update and the latest API:
+        https://github.com/atom-community/linter/wiki/Migrating-to-the-new-API', {
+        packageName: atomPackage.name
+      }) if atomPackage.metadata['linter-package']
+
+>>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
 
   serialize: ->
     @state

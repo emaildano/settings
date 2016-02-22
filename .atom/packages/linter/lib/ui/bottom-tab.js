@@ -1,58 +1,31 @@
-'use babel'
+'use strict';
 
-import {CompositeDisposable, Emitter} from 'atom'
+class BottomTab extends HTMLElement{
 
-export default class BottomTab extends HTMLElement {
-  createdCallback() {
-    this.subscriptions = new CompositeDisposable()
-    this.emitter = new Emitter()
-
-    this.nameElement = document.createTextNode('')
-    this.countElement = document.createElement('span')
-    this.countElement.classList.add('count')
-
-    this.appendChild(this.nameElement)
-    this.appendChild(document.createTextNode(' '))
-    this.appendChild(this.countElement)
-
-    this.count = 0
-
-    this.subscriptions.add(this.emitter)
-    this.addEventListener('click', function() {
-      if (this.active) {
-        this.emitter.emit('should-toggle-panel')
-      } else {
-        this.emitter.emit('did-change-tab', this.name)
-      }
-    })
-  }
   prepare(name) {
     this.name = name
-    this.nameElement.textContent = name
-    this.subscriptions.add(atom.config.observe(`linter.showErrorTab${name}`, status => {
-      if (status) {
-        this.removeAttribute('hidden')
-      } else {
-        this.setAttribute('hidden', true)
-      }
-    }))
-  }
-  onDidChangeTab(callback) {
-    return this.emitter.on('did-change-tab', callback)
-  }
-  onShouldTogglePanel(callback) {
-    return this.emitter.on('should-toggle-panel', callback)
-  }
-  dispose() {
-    this.subscriptions.dispose()
+    this.attached = false
+    this.active = false
+    this.classList.add('linter-tab')
+    this.countSpan = document.createElement('span')
+    this.countSpan.classList.add('count')
+    this.countSpan.textContent = '0'
+    this.innerHTML = this.name + ' '
+    this.appendChild(this.countSpan)
+    this.count = 0
+    return this
   }
 
-  set count(count) {
-    this._count = count
-    this.countElement.textContent = count
+  attachedCallback() {
+    this.attached = true
   }
-  get count() {
-    return this._count
+
+  detachedCallback() {
+    this.attached = false
+  }
+
+  get active() {
+    return this._active
   }
 
   set active(value) {
@@ -63,17 +36,20 @@ export default class BottomTab extends HTMLElement {
       this.classList.remove('active')
     }
   }
-  get active() {
-    return this._active
+
+  get count(){
+    return this._count
   }
 
-  static create(name) {
-    const el = document.createElement('linter-bottom-tab')
-    el.prepare(name)
-    return el
+  set count(value) {
+    this._count = value
+    this.countSpan.textContent = value
   }
+
 }
 
-document.registerElement('linter-bottom-tab', {
-  prototype: BottomTab.prototype
-})
+module.exports = BottomTab = document
+  .registerElement(
+    'linter-bottom-tab',
+    {prototype: BottomTab.prototype}
+  )

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## 1.11.3
 
 * Fix a typo that didn't let `linter-indie` service to work
@@ -94,6 +95,10 @@
 
 ## 1.5.0
 
+=======
+## Upcoming
+
+>>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
 * Fix baseline alignment of text on the bottom bar
 * Fix a bug where linter:togglePanel won't work
 * Stricter message validation, helps catching provider bugs

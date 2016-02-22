@@ -1,5 +1,6 @@
 'use babel'
 
+<<<<<<< HEAD
 const Interact = require('interact.js')
 const Clipboard = require('clipboard')
 import {CompositeDisposable} from 'atom'
@@ -148,16 +149,69 @@ export default class BottomPanel {
     }
 
     this.messagesElement.parentNode.style.height = `${height}px`
+=======
+import {CompositeDisposable} from 'atom'
+import {Message} from './message-element'
+
+export class BottomPanel {
+  constructor(scope) {
+    this.subscriptions = new CompositeDisposable
+    this.element = document.createElement('linter-panel') // TODO(steelbrain): Make this a `div`
+    this.panel = atom.workspace.addBottomPanel({item: this.element, visible: false, priority: 500})
+    this.visibility = false
+    this.scope = scope
+    this.messages = new Map()
+
+    this.subscriptions.add(atom.config.observe('linter.showErrorPanel', value => {
+      this.configVisibility = value
+      this.setVisibility(true)
+    }))
+    this.subscriptions.add(atom.workspace.observeActivePaneItem(paneItem => {
+      this.paneVisibility = paneItem === atom.workspace.getActiveTextEditor()
+      this.setVisibility(true)
+    }))
+  }
+  refresh(scope) {
+    this.scope = scope
+    for (let message of this.messages) {
+      message[1].updateVisibility(scope)
+    }
+  }
+  setMessages({added, removed}) {
+    if (removed.length)
+      this.removeMessages(removed)
+    for (let message of added) {
+      const messageElement = Message.fromMessage(message)
+      this.element.appendChild(messageElement)
+      messageElement.updateVisibility(this.scope)
+      this.messages.set(message, messageElement)
+    }
+  }
+  removeMessages(removed) {
+    for (let message of removed) {
+      if (this.messages.has(message)) {
+        this.element.removeChild(this.messages.get(message))
+        this.messages.delete(message)
+      }
+    }
+>>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
   }
   getVisibility() {
     return this.visibility
   }
+<<<<<<< HEAD
   updateVisibility() {
     this.visibility = this.configVisibility && this.paneVisibility && this.visibleMessages > 0
 
     if (this.visibility) {
       this.panel.show()
       this.updateHeight()
+=======
+  setVisibility(value){
+    this.visibility = value && this.configVisibility && this.paneVisibility
+    if (this.visibility) {
+      this.panel.show()
+>>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
     } else {
       this.panel.hide()
     }
@@ -165,10 +219,14 @@ export default class BottomPanel {
   dispose() {
     this.subscriptions.dispose()
     this.messages.clear()
+<<<<<<< HEAD
     try {
       this.panel.destroy()
     } catch (err) {
       // Atom fails weirdly sometimes when doing this
     }
+=======
+    this.panel.destroy()
+>>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
   }
 }

@@ -35,10 +35,9 @@ Creative Cloud Files
 
 # Ansible / Vagrant
 ansible_hosts
-server.retry
 VirtualBox VMs
 .vagrant.d
-ec2.retry
+*.retry
 .ansible
 
 # Vim

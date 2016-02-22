@@ -8,13 +8,18 @@
       ".DS_Store"
     ]
     themes: [
-      "seti-ui"
+      "atom-material-ui"
       "oceanic-reef-syntax"
     ]
+<<<<<<< HEAD
+=======
+    excludeVcsIgnoredPaths: false
+>>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
   editor:
     fontSize: 16
     invisibles: {}
     scrollPastEnd: true
+<<<<<<< HEAD
     softWrapAtPreferredLineLength: true
     tabType: "soft"
   "exception-reporting":
@@ -26,3 +31,20 @@
   "tree-view": {}
   welcome:
     showOnStartup: false
+=======
+  "tree-view":
+    hideIgnoredNames: true
+  "one-dark-ui": {}
+  linter:
+    showErrorTabLine: true
+    showErrorTabFile: false
+  "linter-scss-lint":
+    executablePath: "/usr/local/bin/scss-lint"
+  "fuzzy-finder": {}
+  tabs:
+    usePreviewTabs: true
+  "atom-material-ui":
+    disableAnimations: true
+    depth: true
+    panelContrast: true
+>>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566

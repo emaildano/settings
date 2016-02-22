@@ -185,11 +185,19 @@
   "bugs": {
     "url": "https://github.com/AtomLinter/linter-scss-lint/issues"
   },
+<<<<<<< HEAD
   "homepage": "https://github.com/AtomLinter/linter-scss-lint#readme",
   "_id": "linter-scss-lint@2.5.1",
   "_shasum": "35b125029a3081ae8c4d737d1669874e1dfa6ac6",
   "_resolved": "file:../d-116117-3905-13v4x6u/package.tgz",
   "_from": "../d-116117-3905-13v4x6u/package.tgz",
+=======
+  "homepage": "https://github.com/AtomLinter/linter-scss-lint",
+  "_id": "linter-scss-lint@2.0.0",
+  "_shasum": "e907593c0a831d935f71107adb1da350699451fc",
+  "_resolved": "file:../d-115721-12295-bbpzqz/package.tgz",
+  "_from": "../d-115721-12295-bbpzqz/package.tgz",
+>>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

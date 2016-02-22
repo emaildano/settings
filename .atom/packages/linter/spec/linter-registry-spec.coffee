@@ -18,7 +18,11 @@ describe 'linter-registry', ->
     it 'pushes linter into registry when valid', ->
       linter = getLinter()
       linterRegistry.addLinter(linter)
+<<<<<<< HEAD
       expect(linterRegistry.linters.size).toBe(1)
+=======
+      expect(linterRegistry.linters.length).toBe(1)
+>>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
     it 'set deactivated to false on linter', ->
       linter = getLinter()
       linterRegistry.addLinter(linter)
@@ -65,6 +69,10 @@ describe 'linter-registry', ->
       linter = {
         grammarScopes: ['*']
         lintOnFly: false
+<<<<<<< HEAD
+=======
+        modifiesBuffer: false
+>>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
         scope: 'file'
         lint: ->
       }
@@ -77,6 +85,10 @@ describe 'linter-registry', ->
       linter = {
         grammarScopes: ['*']
         lintOnFly: false
+<<<<<<< HEAD
+=======
+        modifiesBuffer: false
+>>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
         scope: 'file'
         lint: ->
       }
@@ -84,14 +96,79 @@ describe 'linter-registry', ->
       expect(linterRegistry.lint({onChange: false, editorLinter})).toBeDefined()
       expect(linterRegistry.lint({onChange: false, editorLinter})).toBeUndefined()
 
+<<<<<<< HEAD
+=======
+    describe 'buffer modifying linter', ->
+      it 'triggers before other linters', ->
+        last = null
+        normalLinter = {
+          grammarScopes: ['*']
+          lintOnFly: false
+          modifiesBuffer: false
+          scope: 'file'
+          lint: -> last = 'normal'
+        }
+        bufferModifying = {
+          grammarScopes: ['*']
+          lintOnFly: false
+          modifiesBuffer: true
+          scope: 'file'
+          lint: -> last = 'bufferModifying'
+        }
+        editorLinter = new EditorLinter(atom.workspace.getActiveTextEditor())
+        linterRegistry.addLinter(normalLinter)
+        linterRegistry.addLinter(bufferModifying)
+        waitsForPromise ->
+          linterRegistry.lint({onChange: false, editorLinter}).then ->
+            expect(last).toBe('normal')
+      it 'runs in sequence', ->
+        order = []
+        first = {
+          grammarScopes: ['*']
+          lintOnFly: false
+          modifiesBuffer: true
+          scope: 'file'
+          lint: -> order.push('first')
+        }
+        second = {
+          grammarScopes: ['*']
+          lintOnFly: false
+          modifiesBuffer: true
+          scope: 'file'
+          lint: -> order.push('second')
+        }
+        third = {
+          grammarScopes: ['*']
+          lintOnFly: false
+          modifiesBuffer: true
+          scope: 'file'
+          lint: -> order.push('third')
+        }
+        editorLinter = new EditorLinter(atom.workspace.getActiveTextEditor())
+        linterRegistry.addLinter(first)
+        linterRegistry.addLinter(second)
+        linterRegistry.addLinter(third)
+        waitsForPromise ->
+          linterRegistry.lint({onChange: false, editorLinter}).then ->
+            expect(order[0]).toBe('first')
+            expect(order[1]).toBe('second')
+            expect(order[2]).toBe('third')
+
+>>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
   describe '::onDidUpdateMessages', ->
     it 'is triggered whenever messages change', ->
       editorLinter = new EditorLinter(atom.workspace.getActiveTextEditor())
       linter = {
         grammarScopes: ['*']
         lintOnFly: false
+<<<<<<< HEAD
         scope: 'file'
         lint: -> return [{type: 'Error', text: 'Something'}]
+=======
+        modifiesBuffer: false
+        scope: 'file'
+        lint: -> return [{type: "Error", text: "Something"}]
+>>>>>>> 880bd99b2ce454504a8f686e82d30dd0fafd9566
       }
       info = undefined
       linterRegistry.addLinter(linter)
